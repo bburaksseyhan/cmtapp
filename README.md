@@ -27,6 +27,7 @@ go run main.go
 used packages
 
 - Web framework: go get github.com/labstack/echo/v4
+- Read Configuration file : github.com/spf13/viper
 - Logging : go get github.com/sirupsen/logrus
 - PostgreSQL : go get github.com/lib/pq
 
