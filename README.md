@@ -8,9 +8,7 @@ Implemented PostgreSQL with Golang
 docker build -t cmtapi .
 docker run -d -p 8091:8091 cmtapi
 ```
-
-<img width="1440" alt="Screen Shot 2021-11-04 at 11 37 26" src="https://user-images.githubusercontent.com/60069987/140282941-94900fd2-31a0-40d7-974e-91dca68bf5c2.png">
-
+<img width="1068" alt="Screen Shot 2021-11-04 at 13 29 03" src="https://user-images.githubusercontent.com/60069987/140298537-31b7d548-d902-439d-bbb9-48a2ce85aa51.png">
 
 ```
 -- Drop table
