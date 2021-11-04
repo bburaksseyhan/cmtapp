@@ -16,6 +16,7 @@ ENV TZ Europe/Istanbul
 
 WORKDIR /app
 COPY --from=build-env /cmtapp .
+COPY --from=build-env /app/src/cmd/api /app/
 
 EXPOSE 80
 CMD [ "./cmtapp" ]
