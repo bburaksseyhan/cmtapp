@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  cmtapp:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8091:8091
