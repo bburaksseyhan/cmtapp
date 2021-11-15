@@ -1,8 +1,9 @@
+[![Go Doc](https://godoc.org/github.com/gogf/gf?status.svg)](https://godoc.org/github.com/gogf/gf)
 [![Go Report Card](https://goreportcard.com/badge/github.com/bburaksseyhan/cmtapp)](https://goreportcard.com/report/github.com/bburaksseyhan/cmtapp)
 
 # Customer Information Web Api
 
-Implemented PostgreSQL with Golang
+Implemented PostgreSQL with Golang on Docker :ship:
 
 ```docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=Password! -d postgres;```
 
@@ -32,12 +33,14 @@ go to > src/cmd/api
 go run main.go
 ```
 
-used packages 
+used packages :package:
 
-- Web framework: go get github.com/labstack/echo/v4
-- Read Configuration file : go get github.com/spf13/viper
-- Logging : go get github.com/sirupsen/logrus
-- PostgreSQL : go get github.com/lib/pq
+- [ ] Web framework: go get github.com/labstack/echo/v4
+- [ ] Read Configuration file : go get github.com/spf13/viper
+- [ ] Logging : go get github.com/sirupsen/logrus
+- [ ] PostgreSQL : go get github.com/lib/pq
+
+documentation: [Related Post](https://dev.to/bseyhan/golang-with-database-operations-3jl0). :pencil2: :book:
 
 
 
