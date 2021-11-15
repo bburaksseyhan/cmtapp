@@ -26,7 +26,7 @@ type postgresCustomerRepository struct {
 	conn      string
 }
 
-// NewPostgresCustomerRepository crerate new postgresCustomerRepository
+// NewPostgresCustomerRepository create new postgresCustomerRepository
 func NewPostgresCustomerRepository(dbSettings *utils.DbSettings) CustomerRepository {
 	//initial log formatter
 	log.SetFormatter(&log.JSONFormatter{})
@@ -40,8 +40,8 @@ func NewPostgresCustomerRepository(dbSettings *utils.DbSettings) CustomerReposit
 	return repo
 }
 
+// List return all CustomerEntity
 func (r *postgresCustomerRepository) List(cntxt context.Context, timeout int) ([]entities.CustomerEntity, error) {
-
 	//context
 	ctx, cancel := context.WithTimeout(cntxt, time.Duration(timeout)*time.Second)
 	defer cancel()
@@ -71,6 +71,7 @@ func (r *postgresCustomerRepository) List(cntxt context.Context, timeout int) ([
 	return customerEntity, nil
 }
 
+// Add method return one saved customer entity
 func (r *postgresCustomerRepository) Add(customer entities.CustomerEntity, cntxt context.Context, timeout int) (entities.CustomerEntity, error) {
 
 	//context
@@ -90,6 +91,7 @@ func (r *postgresCustomerRepository) Add(customer entities.CustomerEntity, cntxt
 	return customer, nil
 }
 
+// Delete take User Id parameter return true or false
 func (r *postgresCustomerRepository) Delete(id int, cntxt context.Context, timeout int) (bool, error) {
 
 	//context
@@ -112,6 +114,7 @@ func (r *postgresCustomerRepository) Delete(id int, cntxt context.Context, timeo
 	return true, nil
 }
 
+// Get method take User Id parameter return a CustomerEntity
 func (r *postgresCustomerRepository) Get(id int, cntxt context.Context, timeout int) (entities.CustomerEntity, error) {
 
 	//context

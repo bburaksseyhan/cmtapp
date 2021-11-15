@@ -11,7 +11,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-// CustomerHandler interface
+// CustomerHandler helps list customerHandler.
 type CustomerHandler interface {
 	List(echo.Context) error
 	Add(echo.Context) error
@@ -21,22 +21,25 @@ type CustomerHandler interface {
 	Health(echo.Context) error
 }
 
-// customerHandler hold the repo and settings
+// customerHandler implements the CustomerHandler interface.
 type customerHandler struct {
 	repo     repository.CustomerRepository
 	settings utils.DbSettings
 }
 
-// NewCustomerHandler create a new customerHandler
+// NewCustomerHandler returns a new customerHandler.
 func NewCustomerHandler(customerRepository repository.CustomerRepository, dbSettings *utils.DbSettings) CustomerHandler {
 	return &customerHandler{repo: customerRepository, settings: *dbSettings}
 }
 
+// List take echo.Context return customer models.
 func (h *customerHandler) List(c echo.Context) error {
 
+	//
 	context := c.Request().Context()
 	customerModels := []models.Customer{}
 
+	// get customer list
 	customerEntities, err := h.repo.List(context, h.settings.Timeout)
 	if err != nil {
 		return err
@@ -49,6 +52,7 @@ func (h *customerHandler) List(c echo.Context) error {
 	return c.JSON(http.StatusOK, customerModels)
 }
 
+// Add method save new customer
 func (h *customerHandler) Add(c echo.Context) error {
 
 	context := c.Request().Context()
@@ -67,6 +71,7 @@ func (h *customerHandler) Add(c echo.Context) error {
 	return c.JSON(http.StatusOK, data)
 }
 
+// Delete method remove a single user
 func (h *customerHandler) Delete(c echo.Context) error {
 
 	context := c.Request().Context()
@@ -81,6 +86,7 @@ func (h *customerHandler) Delete(c echo.Context) error {
 	return c.JSON(http.StatusOK, data)
 }
 
+// Get method get a single user detail
 func (h *customerHandler) Get(c echo.Context) error {
 
 	context := c.Request().Context()
@@ -95,6 +101,7 @@ func (h *customerHandler) Get(c echo.Context) error {
 	return c.JSON(http.StatusOK, data)
 }
 
+// Health check the server status
 func (h *customerHandler) Health(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, "healty")
