@@ -1,5 +1,6 @@
 [![Go Doc](https://godoc.org/github.com/gogf/gf?status.svg)](https://godoc.org/github.com/gogf/gf)
 [![Go Report Card](https://goreportcard.com/badge/github.com/bburaksseyhan/cmtapp)](https://goreportcard.com/report/github.com/bburaksseyhan/cmtapp)
+[![GitHub stars](https://img.shields.io/github/stars/bburaksseyhan/cmtapp)](https://github.com/bburaksseyhan/cmtapp/stargazers)
 
 # Customer Information Web Api
 
