@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/bburaksseyhan/cmtapp)](https://goreportcard.com/report/github.com/bburaksseyhan/cmtapp)
+
 # Customer Information Web Api
 
 Implemented PostgreSQL with Golang
@@ -30,7 +32,7 @@ go to > src/cmd/api
 go run main.go
 ```
 
-used packages
+used packages 
 
 - Web framework: go get github.com/labstack/echo/v4
 - Read Configuration file : go get github.com/spf13/viper
