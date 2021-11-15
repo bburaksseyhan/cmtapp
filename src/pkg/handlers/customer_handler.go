@@ -11,6 +11,7 @@ import (
 	"github.com/labstack/echo"
 )
 
+// CustomerHandler interface
 type CustomerHandler interface {
 	List(echo.Context) error
 	Add(echo.Context) error
@@ -20,11 +21,13 @@ type CustomerHandler interface {
 	Health(echo.Context) error
 }
 
+// customerHandler hold the repo and settings
 type customerHandler struct {
 	repo     repository.CustomerRepository
 	settings utils.DbSettings
 }
 
+// NewCustomerHandler create a new customerHandler
 func NewCustomerHandler(customerRepository repository.CustomerRepository, dbSettings *utils.DbSettings) CustomerHandler {
 	return &customerHandler{repo: customerRepository, settings: *dbSettings}
 }

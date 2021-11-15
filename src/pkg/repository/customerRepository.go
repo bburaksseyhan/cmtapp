@@ -13,6 +13,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// CustomerRepository related with context and response model
 type CustomerRepository interface {
 	List(cntxt context.Context, timeout int) ([]entities.CustomerEntity, error)
 	Add(customer entities.CustomerEntity, cntxt context.Context, timeout int) (entities.CustomerEntity, error)
@@ -25,6 +26,7 @@ type postgresCustomerRepository struct {
 	conn      string
 }
 
+// NewPostgresCustomerRepository crerate new postgresCustomerRepository
 func NewPostgresCustomerRepository(dbSettings *utils.DbSettings) CustomerRepository {
 	//initial log formatter
 	log.SetFormatter(&log.JSONFormatter{})
@@ -71,9 +73,11 @@ func (r *postgresCustomerRepository) List(cntxt context.Context, timeout int) ([
 
 func (r *postgresCustomerRepository) Add(customer entities.CustomerEntity, cntxt context.Context, timeout int) (entities.CustomerEntity, error) {
 
+	//context
 	ctx, cancel := context.WithTimeout(cntxt, time.Duration(timeout)*time.Second)
 	defer cancel()
 
+	//connect database
 	db := openDatabaseConn(r)
 	defer db.Close()
 
@@ -88,9 +92,11 @@ func (r *postgresCustomerRepository) Add(customer entities.CustomerEntity, cntxt
 
 func (r *postgresCustomerRepository) Delete(id int, cntxt context.Context, timeout int) (bool, error) {
 
+	//context
 	ctx, cancel := context.WithTimeout(cntxt, time.Duration(timeout)*time.Second)
 	defer cancel()
 
+	//connect database
 	db := openDatabaseConn(r)
 	defer db.Close()
 
@@ -108,9 +114,11 @@ func (r *postgresCustomerRepository) Delete(id int, cntxt context.Context, timeo
 
 func (r *postgresCustomerRepository) Get(id int, cntxt context.Context, timeout int) (entities.CustomerEntity, error) {
 
+	//context
 	ctx, cancel := context.WithTimeout(cntxt, time.Duration(timeout)*time.Second)
 	defer cancel()
 
+	//connect database
 	db := openDatabaseConn(r)
 	defer db.Close()
 

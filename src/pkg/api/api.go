@@ -10,6 +10,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Initialize is create new Web Framework, Handlers and Repositories
 func Initialize(dbSettings *utils.DbSettings) {
 
 	log.Println("CTM App is starting...")
