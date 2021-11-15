@@ -35,10 +35,10 @@ go run main.go
 
 used packages :package:
 
-- [ ] Web framework: go get github.com/labstack/echo/v4
-- [ ] Read Configuration file : go get github.com/spf13/viper
-- [ ] Logging : go get github.com/sirupsen/logrus
-- [ ] PostgreSQL : go get github.com/lib/pq
+- [ ] Web framework: go get -u github.com/labstack/echo/v4
+- [ ] Read Configuration file : go get -u github.com/spf13/viper
+- [ ] Logging : go get -u github.com/sirupsen/logrus
+- [ ] PostgreSQL : go get -u github.com/lib/pq
 
 documentation: [Related Post](https://dev.to/bseyhan/golang-with-database-operations-3jl0). :pencil2: :book:
 
